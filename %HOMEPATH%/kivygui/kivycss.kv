@@ -1,0 +1,59 @@
+<ScreenHOME>:
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            Button:
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'screen_data'
+                background_color: (0,0,0)
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: "vertical"
+                    Image:
+                        source: 'data.png'
+                        pos: self.parent.pos
+                    Label:
+                        width: 100
+                        text: "Data"
+                
+            Button:
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'screen_data'
+                background_color: (0,0,0)
+                BoxLayout:
+                    pos: self.parent.pos
+                    size: self.parent.size
+                    orientation: "vertical"
+                    Image:
+                        source: 'repair.png'
+                        pos: self.parent.pos
+                    Label:
+                        width: 100
+                        text: "Repair"
+        BoxLayout:
+            Image:
+                source: "./ConstantThornyGalapagospenguin-small.gif"
+
+ 
+<ScreenDATA>:
+    BoxLayout:
+        Button:
+            text: "HOME"
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'screen_home'
+
+<ScreenREPAIR>:
+    BoxLayout:
+        Button:
+            text: "HOME"
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'screen_home'
+

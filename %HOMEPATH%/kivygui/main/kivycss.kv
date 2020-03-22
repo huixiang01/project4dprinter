@@ -1,3 +1,4 @@
+
 <ScreenHOME>:
     BoxLayout:
         orientation: "vertical"
@@ -14,7 +15,7 @@
                     size: self.parent.size
                     orientation: "vertical"
                     Image:
-                        source: 'data.png'
+                        source: './../data.png'
                         pos: self.parent.pos
                     Label:
                         width: 100
@@ -24,36 +25,67 @@
                 on_press:
                     root.manager.transition.direction = 'left'
                     root.manager.transition.duration = 1
-                    root.manager.current = 'screen_data'
+                    root.manager.current = 'screen_repair'
                 background_color: (0,0,0)
                 BoxLayout:
                     pos: self.parent.pos
                     size: self.parent.size
                     orientation: "vertical"
                     Image:
-                        source: 'repair.png'
+                        source: './../repair.png'
                         pos: self.parent.pos
                     Label:
                         width: 100
                         text: "Repair"
         BoxLayout:
             Image:
-                source: "./ConstantThornyGalapagospenguin-small.gif"
-
+                source: "./../ConstantThornyGalapagospenguin-small.gif"
+<MyButton@Button>: 
+    size_hint: [None, None] 
+    size: [400, 100] 
  
-<ScreenDATA>:
-    BoxLayout:
-        Button:
+<ScreenData>:
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'top' 
+        MyButton:
             text: "HOME"
             on_press:
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'screen_home'
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top' 
+        MyButton: 
+            text: 'Update' 
+            on_press: root.build()
+    AnchorLayout:
+        anchor_y: 'bottom' 
+        
+    
 
 <ScreenREPAIR>:
-    BoxLayout:
-        Button:
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'top' 
+        MyButton:
             text: "HOME"
             on_press:
                 root.manager.transition.direction = 'right'
                 root.manager.current = 'screen_home'
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top' 
+        MyButton: 
+            text: 'Start' 
+            on_press: root.start()
+    AnchorLayout:
+        anchor_y: 'bottom' 
+        MyButton: 
+            text: 'Reset' 
+            on_press: root.number = 0 
+    BoxLayout:         
+        Label: 
+            text: str(round(root.number)) +" Days w/o Spoiling"
+
 
